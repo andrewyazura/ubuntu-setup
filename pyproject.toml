@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "ubuntu-setup"
+version = "0.1.0"
+description = ""
+authors = ["Andrew Yatsura <andrewyazura203@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "ubuntu_setup"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.6"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+ruff = "^0.0.280"
+mypy = "^1.4.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
