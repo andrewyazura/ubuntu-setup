@@ -33,7 +33,7 @@ BASH_SETUP = [
 @click.command()
 @click.option(
     "--shell",
-    default="other",
+    prompt="shell env",
     type=click.Choice(["zsh", "bash", "other"], case_sensitive=False),
 )
 def install_pyenv(shell: str) -> None:
