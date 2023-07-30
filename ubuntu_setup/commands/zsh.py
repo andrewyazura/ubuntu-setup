@@ -11,11 +11,11 @@ INSTALL_COMMANDS = [
     ),
     (
         "git clone https://github.com/spaceship-prompt/spaceship-prompt.git "
-        '"$ZSH/custom/themes/spaceship-prompt" --depth=1'
+        '"$HOME/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1'
     ),
     (
-        'ln -s "$ZSH/custom/themes/spaceship-prompt/spaceship.zsh-theme" '
-        '"$ZSH/custom/themes/spaceship.zsh-theme"'
+        'ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" '
+        '"$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"'
     ),
 ]
 

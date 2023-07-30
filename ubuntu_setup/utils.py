@@ -8,12 +8,12 @@ T = TypeVar("T", str, list[str])
 
 
 @click.pass_context
-def run_command(ctx, command: T) -> None:
+def run_command(ctx: click.Context, command: T) -> None:
     if ctx.obj["DEBUG"]:
         click.secho(command, fg="red")
         return
 
-    subprocess.run(command, shell=True, check=True)
+    subprocess.run(command, shell=True, check=ctx.obj["EXIT_FIRST"])
 
 
 def run_commands(commands: list[T]) -> None:

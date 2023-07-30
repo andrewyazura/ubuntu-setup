@@ -21,10 +21,10 @@ COMMANDS = [
 
 
 @click.command(context_settings=dict(ignore_unknown_options=True))
-@deb_files_option
 @git_name_option
 @git_email_option
 @pyenv_shell_option
+@deb_files_option
 @click.pass_context
 def run(ctx: click.Context, **_) -> None:
     for command in COMMANDS:
