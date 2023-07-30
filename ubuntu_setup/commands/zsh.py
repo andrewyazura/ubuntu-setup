@@ -17,6 +17,7 @@ INSTALL_COMMANDS = [
         'ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" '
         '"$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"'
     ),
+    "chsh -s $(which zsh)",
 ]
 
 
