@@ -32,6 +32,9 @@ def run(ctx: click.Context, **_) -> None:
 
     echo_completion_message("auto setup completed!")
 
+    click.secho("to use zsh, run ", bold=True, fg="red", nl=False)
+    click.secho("chsh -s $(which zsh)", bold=True, fg="white")
+
 
 def add_commands(cli: click.Group) -> None:
     cli.add_command(run)

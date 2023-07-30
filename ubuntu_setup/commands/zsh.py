@@ -1,3 +1,6 @@
+import os
+import re
+
 import click
 
 from ..utils import echo_completion_message, run_commands
@@ -17,7 +20,6 @@ INSTALL_COMMANDS = [
         'ln -s "$HOME/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" '
         '"$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"'
     ),
-    "chsh -s $(which zsh)",
 ]
 
 
@@ -25,4 +27,17 @@ INSTALL_COMMANDS = [
 def install_zsh(**_) -> None:
     run_commands(INSTALL_COMMANDS)
 
+    with open(f"{os.environ['HOME']}/.zshrc", "r") as file:
+        content = re.sub(
+            r'ZSH_THEME=".+"',
+            'ZSH_THEME="spaceship"',
+            file.read(),
+        )
+
+    with open(f"{os.environ['HOME']}/.zshrc", "w") as file:
+        file.write(content)
+
     echo_completion_message("zsh setup completed!")
+
+    click.secho("to use zsh, run ", bold=True, fg="red", nl=False)
+    click.secho("chsh -s $(which zsh)", bold=True, fg="white")
