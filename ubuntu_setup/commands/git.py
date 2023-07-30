@@ -1,13 +1,16 @@
 import click
 
-from ..utils import run_command
+from ..utils import echo_completion_message, run_command
+
+git_name_option = click.option("--name", prompt="git name")
+git_email_option = click.option("--email", prompt="git email")
 
 
 @click.command()
-@click.option("--name", prompt="git name")
-@click.option("--email", prompt="git email")
-def setup_git(name, email) -> None:
+@git_name_option
+@git_email_option
+def setup_git(name: str, email: str, **_) -> None:
     run_command(f'git config --global user.name "{name}"')
     run_command(f'git config --global user.email "{email}"')
 
-    click.secho("git setup completed!", bg="green")
+    echo_completion_message("git setup completed!")

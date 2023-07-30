@@ -1,6 +1,6 @@
 import click
 
-from ..utils import run_commands
+from ..utils import echo_completion_message, run_commands
 
 INSTALL_COMMANDS = [
     "curl https://pyenv.run | bash",
@@ -29,14 +29,16 @@ BASH_SETUP = [
     "echo 'eval \"$(pyenv init -)\"' >> ~/.bashrc",
 ]
 
-
-@click.command()
-@click.option(
+pyenv_shell_option = click.option(
     "--shell",
     prompt="shell env",
     type=click.Choice(["zsh", "bash", "other"], case_sensitive=False),
 )
-def install_pyenv(shell: str) -> None:
+
+
+@click.command()
+@pyenv_shell_option
+def install_pyenv(shell: str, **_) -> None:
     run_commands(INSTALL_COMMANDS)
 
     match shell:
@@ -52,4 +54,4 @@ def install_pyenv(shell: str) -> None:
                 "https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv"
             )
 
-    click.secho("pyenv setup completed!", bg="green")
+    echo_completion_message("pyenv setup completed!")

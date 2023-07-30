@@ -1,6 +1,6 @@
 import click
 
-from ..utils import run_commands
+from ..utils import echo_completion_message, run_commands
 
 INSTALL_COMMANDS = [
     "sudo apt install -y zsh",
@@ -20,7 +20,7 @@ INSTALL_COMMANDS = [
 
 
 @click.command()
-def install_zsh() -> None:
+def install_zsh(**_) -> None:
     run_commands(INSTALL_COMMANDS)
 
-    click.secho("zsh setup completed!", bg="green")
+    echo_completion_message("zsh setup completed!")

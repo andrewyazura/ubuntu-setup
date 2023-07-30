@@ -1,6 +1,6 @@
 import click
 
-from ..utils import run_commands
+from ..utils import echo_completion_message, run_commands
 
 INSTALL_COMMANDS = [
     (
@@ -17,7 +17,7 @@ INSTALL_COMMANDS = [
 
 
 @click.command()
-def install_spotify() -> None:
+def install_spotify(**_) -> None:
     run_commands(INSTALL_COMMANDS)
 
-    click.secho("spotify install completed!", bg="green")
+    echo_completion_message("spotify install completed!")

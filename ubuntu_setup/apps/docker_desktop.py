@@ -1,6 +1,4 @@
-import click
-
-from ..utils import run_command, run_commands
+from ..utils import echo_completion_message, run_command, run_commands
 
 DOCKER_REPO_SETUP = [
     "sudo apt install -y ca-certificates curl gnupg",
@@ -24,4 +22,4 @@ def install_docker_desktop(deb_file_path: str) -> None:
     run_commands(DOCKER_REPO_SETUP)
 
     run_command(f"sudo apt install -y {deb_file_path}")
-    click.secho("docker desktop install completed!", bg="green")
+    echo_completion_message("docker desktop install completed!")
