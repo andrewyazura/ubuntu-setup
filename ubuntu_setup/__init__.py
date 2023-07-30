@@ -11,7 +11,7 @@ def cli(ctx, debug) -> None:
     ctx.obj["DEBUG"] = debug
 
     if debug:
-        click.secho("debug mode is on", bg="red")
+        click.secho("debug mode is on 🐛", bold=True, bg="red")
 
 
 add_commands(cli)

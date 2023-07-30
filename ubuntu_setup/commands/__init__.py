@@ -1,15 +1,20 @@
 import click
 
-from .apps import install_apps
-from .git import setup_git
-from .pyenv import install_pyenv
+from .signal import install_signal
 from .spotify import install_spotify
 from .zsh import install_zsh
 
+COMMANDS = [
+    setup_git,
+    install_zsh,
+    install_pyenv,
+    install_signal,
+    install_spotify,
+    install_apps,
+]
 
-def add_commands(cli: click.Group):
-    cli.add_command(install_apps)
-    cli.add_command(setup_git)
-    cli.add_command(install_pyenv)
-    cli.add_command(install_spotify)
-    cli.add_command(install_zsh)
+def add_commands(cli: click.Group) -> None:
+    cli.add_command(auto)
+
+    for command in COMMANDS:
+        cli.add_command(command)
