@@ -26,7 +26,7 @@ COMMANDS = [
 @git_email_option
 @pyenv_shell_option
 @click.pass_context
-def auto(ctx: click.Context, **_) -> None:
+def run(ctx: click.Context, **_) -> None:
     for command in COMMANDS:
         ctx.forward(command)
 
@@ -34,7 +34,7 @@ def auto(ctx: click.Context, **_) -> None:
 
 
 def add_commands(cli: click.Group) -> None:
-    cli.add_command(auto)
+    cli.add_command(run)
 
     for command in COMMANDS:
         cli.add_command(command)
