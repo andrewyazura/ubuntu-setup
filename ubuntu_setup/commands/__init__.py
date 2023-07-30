@@ -2,6 +2,7 @@ import click
 
 from ..utils import echo_completion_message
 from .apps import deb_files_option, install_apps
+from .apt import apt_upgrade
 from .git import git_email_option, git_name_option, setup_git
 from .pyenv import install_pyenv, pyenv_shell_option
 from .signal import install_signal
@@ -9,6 +10,7 @@ from .spotify import install_spotify
 from .zsh import install_zsh
 
 COMMANDS = [
+    apt_upgrade,
     setup_git,
     install_zsh,
     install_pyenv,
