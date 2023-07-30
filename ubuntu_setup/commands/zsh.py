@@ -3,18 +3,19 @@ import click
 from ..utils import echo_completion_message, run_commands
 
 INSTALL_COMMANDS = [
-    "sudo apt install -y zsh",
+    "sudo apt install -y zsh curl",
     (
         'sh -c "$(curl -fsSL '
-        'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+        'https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" '
+        '"" --unattended'
     ),
     (
         "git clone https://github.com/spaceship-prompt/spaceship-prompt.git "
-        '"$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1'
+        '"$ZSH/custom/themes/spaceship-prompt" --depth=1'
     ),
     (
-        'ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" '
-        '"$ZSH_CUSTOM/themes/spaceship.zsh-theme"'
+        'ln -s "$ZSH/custom/themes/spaceship-prompt/spaceship.zsh-theme" '
+        '"$ZSH/custom/themes/spaceship.zsh-theme"'
     ),
 ]
 
